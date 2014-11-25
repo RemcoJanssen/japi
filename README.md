@@ -1,4 +1,4 @@
-japi
+JAPI
 ====
 
 Test API for Joomla 
