@@ -1,10 +1,6 @@
 <?php
 /**
  * @version     test/Ressources/Tags.php 2014-07-11 11:30:00 UTC pav
- * @package     Watchful API
- * @author      Watchful
- * @authorUrl   https://watchful.li
- * @copyright   (c) 2014, Watchful
  */
 class TagsTest extends Slim_Framework_TestCase
 {
