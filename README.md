@@ -35,7 +35,6 @@ We support 4 differents format for output. If you don’t specify an accept head
 
 We support content negociation : http://en.wikipedia.org/wiki/Content_negotiation
 Done with http://williamdurand.fr/Negotiation/
-More info about content negociation : 
 
 
 This is only a test to show the general concept. ACL and a lot of things are missing
