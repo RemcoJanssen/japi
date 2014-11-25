@@ -1,4 +1,4 @@
-JAPI
+J!API
 ====
 
 Test API for Joomla, only basica tags are supported at this stage
