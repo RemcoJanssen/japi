@@ -19,6 +19,8 @@ $app->get('/', function() use ($app) {
 
 
 /* Tags */
+
+//routes are hardcoded in this exemple, but  it's not a problem to configure them from a DB or Plugins
 $app->map('/tags', 'authentificate', function() use ($app, $request_method) {
     $ressource = new \Ressources\Tags($app);
     $ressource->$request_method();
