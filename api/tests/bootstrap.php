@@ -1,10 +1,6 @@
 <?php
 /**
  * @version     test/boostrap.php 2014-07-25 08:00:00 UTC chv
- * @package     Watchful API
- * @author      Watchful
- * @authorUrl   https://watchful.li
- * @copyright   (c) 2014, Watchful
  */
 class Slim_Framework_TestCase extends PHPUnit_Framework_TestCase
 {
