@@ -29,7 +29,7 @@ We support 4 differents format for output. If you don’t specify an accept head
 / HTTP-Header Accept: application/json
 * JSONP
 / HTTP-Header Accept: application/json
-/ For JSONP, add the ?callback parameter to any GET call to have the results wrapped in a JSON function. For example: https://watchful.li/api/v1/sites?callback=myfunction
+/ For JSONP, add the ?callback parameter to any GET call to have the results wrapped in a JSON function. For example: https://mysite.ch/api/v1/sites?callback=myfunction
 * Serialized
 / HTTP-Header Accept: text/plain 
 
