@@ -38,3 +38,5 @@ Done with http://williamdurand.fr/Negotiation/
 
 
 This is only a test to show the general concept. ACL and a lot of things are missing
+
+<img src="https://monosnap.com/image/OTlYewNGvbGpDHpq8q2wykEzK4MZxA.png">
