@@ -37,7 +37,7 @@ We support content negociation : http://en.wikipedia.org/wiki/Content_negotiatio
 Done with http://williamdurand.fr/Negotiation/
 
 ### Errors
-API return  status
+API return status booth in body and header
 
 * 400	Bad Request	
 * 403	Forbidden	
