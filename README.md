@@ -36,7 +36,29 @@ We support 4 differents format for output. If you don’t specify an accept head
 We support content negociation : http://en.wikipedia.org/wiki/Content_negotiation
 Done with http://williamdurand.fr/Negotiation/
 
+### Errors
+API return  status
 
-This is only a test to show the general concept. ACL and a lot of things are missing
+* 400	Bad Request	
+* 403	Forbidden	
+* 404	Not Found	
 
+```JSON
+{
+"error": true,
+"msg": "ERROR: Invalid Route",
+"status": 404
+} 
+```
+
+```XML
+<api>
+<error>1</error>
+<msg>ERROR: Invalid Route</msg>
+<status>404</status>
+</api>
+```
 <img src="https://monosnap.com/image/OTlYewNGvbGpDHpq8q2wykEzK4MZxA.png">
+
+
+This is only a test to show the general concept. ACL and other things are missing
