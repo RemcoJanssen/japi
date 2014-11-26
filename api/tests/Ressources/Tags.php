@@ -10,8 +10,8 @@ class TagsTest extends Slim_Framework_TestCase
      */
     private $testTag = array(
         "id" => 0,
-        "name" => "testtag",
-        "type" => "success");
+        "title" => "testtag",
+        "description" => "success");
     /**
      * It will contain the ID of the newly created tag. We use a static so
      * it can be reused between tests
@@ -20,15 +20,6 @@ class TagsTest extends Slim_Framework_TestCase
      */
     static private $testTagID;
 
-    /**
-     * GET /Tags/metadata
-     * Check that you get a 200 response
-     */
-    public function testGetMetadata()
-    {
-        $this->rest('GET', '/tags/metadata');
-        $this->assertEquals(200, $this->response->status);
-    }
 
     /**
      * GET /Tags/
@@ -60,7 +51,7 @@ class TagsTest extends Slim_Framework_TestCase
      */
     public function testGetFields()
     {
-        $this->rest('GET', '/tags?fields=id,name&limit=1');
+        $this->rest('GET', '/tags?fields=id,title&limit=1');
         $this->assertEquals(200, $this->response->status);
         $response = $this->jsonToObject($this->response->body);
         $firstElement = $response->data[0];
@@ -69,18 +60,6 @@ class TagsTest extends Slim_Framework_TestCase
         $this->assertTrue(property_exists($firstElement, 'name'), 'name is missing');
     }
 
-    /**
-     * GET /Tags/
-     * Check the search 
-     */
-    public function _testGetSearch()
-    {
-        $this->rest('GET', '/tags?log_entry=%25Joomla%25&limit=1');
-        $this->assertEquals(200, $this->response->status);
-        $response = $this->jsonToObject($this->response->body);
-        $firstElement = $response->data[0];
-        $this->assertTrue(0 < preg_match("/Joomla/i", $firstElement->log_entry), 'Joomla not found in log');
-    }
 
     /**
      * GET /Tags/
@@ -88,7 +67,7 @@ class TagsTest extends Slim_Framework_TestCase
      */
     public function testGetOrderAsc()
     {
-        $this->rest('GET', '/tags?order=name+&limit=4');
+        $this->rest('GET', '/tags?order=title+&limit=4');
         $this->assertEquals(200, $this->response->status);
         $response = $this->jsonToObject($this->response->body);
         $name = '';
@@ -112,8 +91,8 @@ class TagsTest extends Slim_Framework_TestCase
         $data = $this->jsonToObject($this->response->body);
         self::$testTagID = $data->id;
 
-        $this->assertEquals($this->testTag['name'], $data->name);
-        $this->assertEquals($this->testTag['type'], $data->type);
+        $this->assertEquals($this->testTag['title'], $data->title);
+        $this->assertEquals($this->testTag['description'], $data->description);
     }
 
     /**
@@ -128,7 +107,7 @@ class TagsTest extends Slim_Framework_TestCase
         $this->assertEquals(200, $this->response->status);
         $data = $this->jsonToObject($this->response->body);
         $this->assertEquals(self::$testTagID, $data->id);
-        $this->assertEquals($this->testTag['name'], $data->name);
+        $this->assertEquals($this->testTag['title'], $data->title);
     }
 
     /**
@@ -147,7 +126,7 @@ class TagsTest extends Slim_Framework_TestCase
 
         $data = $this->jsonToObject($this->response->body);
         $this->assertEquals(self::$testTagID, $data->id);
-        $this->assertEquals($editTag['name'], $data->name);
+        $this->assertEquals($editTag['title'], $data->title);
     }
 
     /**
