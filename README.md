@@ -58,6 +58,19 @@ API return  status
 <status>404</status>
 </api>
 ```
+#### Field selection
+Give the API consumer the ability to choose returned fields
+
+GET v1/tags?fields=id,title
+
+#### Paging
+Use limit and limitstart like in Joomla. All response have the total of objects
+
+GET v1/tags?limit=5&offset=5
+
+
+
+### Swagger UI output
 <img src="https://monosnap.com/image/OTlYewNGvbGpDHpq8q2wykEzK4MZxA.png">
 
 
