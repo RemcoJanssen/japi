@@ -66,7 +66,7 @@ GET v1/tags?fields=id,title
 #### Paging
 Use limit and limitstart like in Joomla. All response have the total of objects
 
-GET v1/tags?limit=5&offset=5
+GET v1/tags?limit=5&limitstart=10
 
 
 
