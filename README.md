@@ -1,7 +1,7 @@
 J!API
 ====
 
-Test API for Joomla, only basica tags are supported at this stage
+Test API for Joomla, only basic tags are supported at this stage
 
 This API use SlimFramework : http://www.slimframework.com
 and swagger for documentation : http://swagger.io/
