@@ -6,6 +6,5 @@
 function authentificate()
 {
     $Authentification = new \Tools\Authentification();
-    $Authentification->Authentificate();
-    
+    $Authentification->Authentificate();   
 }

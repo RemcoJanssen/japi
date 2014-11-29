@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install version="1.5" type="plugin" group="japi" method="upgrade">
+    <name>Users</name>
+    <author>watchful.li</author>
+    <creationDate>2013-08-03</creationDate>
+    <license>GNU/GPL version 3 or later</license>
+    <authorEmail>info@watchful.li</authorEmail>
+    <authorUrl>http://www.watchful.li</authorUrl>
+    <version>1.1.1</version>
+    <description></description>
+    <files>
+        <filename plugin="users">users.php</filename>
+    </files>
+</install>
