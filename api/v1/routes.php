@@ -16,15 +16,35 @@ $app->get('/', function() use ($app) {
     ));
 });
 
+\JPluginHelper::importPlugin('japi');
+			$dispatcher = \JEventDispatcher::getInstance();
+			$apiClassRoutes = $dispatcher->trigger('getRoutes');
 
-
-/* Tags */
-$app->map('/tags', 'authentificate', function() use ($app, $request_method) {
-    $ressource = new \Ressources\Tags($app);
-    $ressource->$request_method();
-})->via('GET', 'POST','OPTIONS');
-
-$app->map('/tags/:id', 'authentificate', function($id) use ($app, $request_method) {
-    $ressource = new \Ressources\Tags($app, $id);
-    $ressource->$request_method();
-})->via('GET', 'DELETE', 'PUT','OPTIONS');
+ foreach ($apiClassRoutes as $apiClassRoute)
+ {
+    foreach ($apiClassRoute as $route)
+    {
+        foreach ($route->via as $via)
+        {            
+            $app->map($route->route, function() use ($app, $route, $via) {
+            
+            $router = $app->router();
+            
+            $params = new stdClass;
+            $params->via = $via;               
+            $params->params = $router->getCurrentRoute()->getParams();
+            $param = array($params);
+             
+            \JPluginHelper::importPlugin( 'japi', $route->origin);
+            $dispatcher = \JEventDispatcher::getInstance();
+            $data = $dispatcher->trigger( $route->function, $param );   
+            
+            $app->render($data[0]->status, 
+                    array(
+                    'msg' => $data[0]->msg
+                    ));
+                    
+            })->via($via);
+        }
+    }    
+}
