@@ -20,7 +20,7 @@ $app->get('/', function() use ($app) {
 			$dispatcher = \JEventDispatcher::getInstance();
 			$apiClassRoutes = $dispatcher->trigger('getRoutes');
 
-<<<<<<< HEAD
+
  foreach ($apiClassRoutes as $apiClassRoute)
  {
     foreach ($apiClassRoute as $route)
@@ -49,18 +49,3 @@ $app->get('/', function() use ($app) {
         }
     }    
 }
-=======
-
-/* Tags */
-
-//routes are hardcoded in this exemple, but  it's not a problem to configure them from a DB or Plugins
-$app->map('/tags', 'authentificate', function() use ($app, $request_method) {
-    $ressource = new \Ressources\Tags($app);
-    $ressource->$request_method();
-})->via('GET', 'POST','OPTIONS');
-
-$app->map('/tags/:id', 'authentificate', function($id) use ($app, $request_method) {
-    $ressource = new \Ressources\Tags($app, $id);
-    $ressource->$request_method();
-})->via('GET', 'DELETE', 'PUT','OPTIONS');
->>>>>>> cdd544e7e42ad2f8c1515ec98d7061e1d97c109f
