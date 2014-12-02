@@ -5,6 +5,7 @@ defined('_JEXEC') or die();
 
 require_once(JPATH_ADMINISTRATOR . '/components/com_japi/classes/pluginApi.php');
 require_once(JPATH_ADMINISTRATOR . '/components/com_japi/classes/routeDefinition.php');
+require_once(JPATH_ADMINISTRATOR . '/components/com_japi/classes/apiData.php');
 
 class plgJapiUsers extends JPluginAPI
 {
@@ -43,39 +44,5 @@ class plgJapiUsers extends JPluginAPI
 
 }
 
-/// 
-class apiData
-{
 
-    public $msg;
-    public $status;
-
-    public function __construct($msg, $status=200)
-    {
-        //Place to add validation to prevent crazy values
-        $this->msg = $msg;
-        $this->status = $status;
-    }
-
-}
-
-class routeDefinition
-{
-
-    public $route;
-    public $via;
-    public $function;
-    public $origin;
-
-    public function __construct($route, $via, $function, $origin)
-    {
-
-        //Place to add validation to prevent crazy values
-        $this->origin = substr($origin, 7); // plgJapiUsers -> Users  
-        $this->route = $route;
-        $this->via = $via;
-        $this->function = $function;
-    }
-
-}
 ?>
