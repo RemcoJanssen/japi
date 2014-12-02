@@ -1,0 +1,7 @@
+<phpunit bootstrap="bootstrap.php">
+    <testsuites>
+      <testsuite name="PHP unit API Tests">
+        <directory suffix=".php">Ressources</directory>
+      </testsuite>
+    </testsuites>
+</phpunit>
