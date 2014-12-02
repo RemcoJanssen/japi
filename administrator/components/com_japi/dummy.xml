@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.0" type="component" method="upgrade">
+    <name>Dummy</name>
+    <creationDate>2014-11-25</creationDate>
+    <author></author>
+    <authorEmail>no-reply@</authorEmail>
+    <authorUrl></authorUrl>
+    <copyright></copyright>
+    <license>GNU GPL v3 or later</license>
+    <version>1.0.0</version>
+    <description>REST API for Joomla</description>
+
+    <!-- Administrator back-end section -->
+    <administration>
+        <!-- Administration menu -->
+        <menu view="main">COM_JAPI</menu>
+
+        <!-- Back-end files -->
+        <files folder="admin">
+            <filename>japi.php</filename>
+        </files>
+
+        <!-- Back-end translation files -->
+        <languages folder="language/admin">
+            <language tag="en-GB">en-GB.com_japi.ini</language>
+            <language tag="en-GB">en-GB.com_japi.sys.ini</language>
+        </languages>
+    </administration>
+</extension>

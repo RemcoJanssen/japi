@@ -1,6 +1,10 @@
 <?php
 /**
  * @version     Tools/Authentification.php 2014-11-16 11:30:00 UTC pav
+ * @package     Watchful API
+ * @author      Watchful
+ * @authorUrl   https://watchful.li
+ * @copyright   (c) 2014, Watchful
  */
 namespace Tools;
 class Authentification

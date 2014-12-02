@@ -2,22 +2,9 @@
 
 // no direct access
 defined('_JEXEC') or die();
-JLoader::import('joomla.application.plugin');
 
-
-// in an other file 
-abstract class JPluginAPI extends JPlugin
-{
-   /**
-     * Use this method to raise error
-     * 
-     * @throws \Exception
-     */
-    public function error($message,$code)
-    {
-        throw new \Exception($message, $code);
-    }
-}
+require_once(JPATH_ADMINISTRATOR . '/components/com_japi/classes/pluginApi.php');
+require_once(JPATH_ADMINISTRATOR . '/components/com_japi/classes/routeDefinition.php');
 
 class plgJapiUsers extends JPluginAPI
 {
