@@ -18,31 +18,28 @@ class plgJapiUsers extends JPluginAPI
         $origin = get_class($this); //  give the name of the class for the router
         //we create a new route objects
         $route = new routeDefinition($route, $via, $function, $origin);
+        $this->addRoute($route);
 
-        //this array of routes will be manage be an abstract class
-        $routes = array($route);
-
-        return $routes;
+        return $this->Routes();
     }
 
     public function Users($params)
     {
         //To have the value of :id back
         //$params->params['id']
-        
-        $user= JFactory::getUser($params->params['id']);
-        
-        if($user->guest==1)
+
+        $user = JFactory::getUser($params->params['id']);
+
+        if ($user->guest == 1)
         {
-            $this->error('Not exist',404);
+            $this->error('Not exist', 404);
         }
-        
+
         $data = new apiData($user);
 
         return $data;
     }
 
 }
-
 
 ?>
