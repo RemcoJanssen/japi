@@ -14,7 +14,7 @@ class plgJapiContacts extends JPluginAPI
     {
         $route = '/contacts/:id';      // route based on Slim syntax
         $via = array('GET');
-        $function = 'Contacts';        //  name of the callBack function for the route
+        $function = 'Contact';        //  name of the callBack function for the route
         $origin = get_class($this); //  give the name of the class for the router
         //we create a new route objects
         $route = new routeDefinition($route, $via, $function, $origin);
@@ -23,7 +23,7 @@ class plgJapiContacts extends JPluginAPI
         return $this->Routes();
     }
 
-    public function Contacts($params)
+    public function Contact($params)
     {
         include(JPATH_BASE . '/components/com_contact/models/contact.php');
         $ContactModel = new ContactModelContact();
