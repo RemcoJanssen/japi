@@ -10,11 +10,6 @@ $app->add(new \ApiMiddleware());
 
 $request_method = strtolower($app->environment['REQUEST_METHOD']);
 
-\jimport('joomla.application.web.router.base');
-\jimport('joomla.application.web.router.rest');
-
-//$router = new \JApplicationWebRouterRest();
-//$router->addMap('/test', 'testController');
 //Main entry
 $app->get('/', function() use ($app) {
     $app->render(200, array(
