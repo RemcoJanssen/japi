@@ -8,7 +8,7 @@ class plgJapiContacts extends JPluginAPI
 {
     public function init()
     {   
-        $this->setHiddenFields(array('created_by'));   
+        $this->setHiddenProperty(array('tags->itemTags'));   
     }
     
     public function getRoutes()

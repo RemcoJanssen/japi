@@ -7,9 +7,14 @@ require_once(JPATH_ADMINISTRATOR . '/components/com_japi/classes/pluginApi.php')
 class plgJapiUsers extends JPluginAPI
 {
 
+    public function init()
+    {
+        $this->setHiddenProperty(array('password'));
+    }
+
     public function getRoutes()
     {
-        $this->addRoute('/users/:id',array('GET'),'users');
+        $this->addRoute('/users/:id', array('GET'), 'users');
 
         return $this->routes();
     }
