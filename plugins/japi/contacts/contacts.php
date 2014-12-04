@@ -12,7 +12,7 @@ class plgJapiContacts extends JPluginAPI
         $this->addRoute('/contacts/:id', array('GET'), 'Contact');
         $this->addRoute('/contacts', array('GET'), 'Contacts');
 
-        return $this->Routes();
+        return $this->routes();
     }
 
     public function Contact($params)
@@ -20,8 +20,8 @@ class plgJapiContacts extends JPluginAPI
         include(JPATH_BASE . '/components/com_contact/models/contact.php');
         $ContactModel = new ContactModelContact();
 
-        $data = $ContactModel->getItem($params->params['id']);
-        return new apiData($data);
+        $contact = $ContactModel->getItem($params->params['id']);
+        return $this->output($contact);
     }
 
     public function Contacts($params)
@@ -29,7 +29,7 @@ class plgJapiContacts extends JPluginAPI
         require_once JPATH_ROOT . '/administrator/components/com_contact/models/contacts.php';
         $ContactModel = new ContactModelContacts();
         $contacts = $ContactModel->getItems();
-        return new apiData($contacts);      
+        return $this->output($contacts);     
     }
 
 }

@@ -13,7 +13,7 @@ abstract class JPluginAPI extends JPlugin
 
     private $routes;
 
-    public function Routes()
+    public function routes()
     {
         return $this->routes;
     }
@@ -25,6 +25,11 @@ abstract class JPluginAPI extends JPlugin
         $this->routes[] = $routeDefinition;
     }
 
+    public function output($data,$code=200)
+    {
+        $output = new apiData($data, $status);
+        return $output;
+    }
     /**
      * Use this method to raise error
      * 

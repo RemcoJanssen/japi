@@ -11,7 +11,7 @@ class plgJapiUsers extends JPluginAPI
     {
         $this->addRoute('/users/:id',array('GET'),'Users');
 
-        return $this->Routes();
+        return $this->routes();
     }
 
     public function Users($params)
@@ -26,9 +26,7 @@ class plgJapiUsers extends JPluginAPI
             $this->error('Not exist', 404);
         }
 
-        $data = new apiData($user);
-
-        return $data;
+        return $this->output($data);
     }
 
 }
