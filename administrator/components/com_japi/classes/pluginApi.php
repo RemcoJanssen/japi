@@ -12,6 +12,7 @@ abstract class JPluginAPI extends JPlugin
 {
 
     private $routes;
+    private $hiddenFields;
 
     public function routes()
     {
@@ -25,10 +26,22 @@ abstract class JPluginAPI extends JPlugin
         $this->routes[] = $routeDefinition;
     }
 
-    public function output($data,$code=200)
+    public function output($datas,$code=200)
     {
+        $this->init();
+
         $output = new apiData($data, $status);
         return $output;
+    }
+    
+    public function setHiddenFields(array $fields)
+    {
+        $this->hiddenFields = $fields;
+    }
+    
+    public function init()
+    {
+
     }
     /**
      * Use this method to raise error

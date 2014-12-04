@@ -6,16 +6,20 @@ require_once(JPATH_ADMINISTRATOR . '/components/com_japi/classes/pluginApi.php')
 
 class plgJapiContacts extends JPluginAPI
 {
-
+    public function init()
+    {   
+        $this->setHiddenFields(array('created_by'));   
+    }
+    
     public function getRoutes()
     {
-        $this->addRoute('/contacts/:id', array('GET'), 'Contact');
-        $this->addRoute('/contacts', array('GET'), 'Contacts');
+        $this->addRoute('/contacts/:id', array('GET'), 'contact');
+        $this->addRoute('/contacts', array('GET'), 'contacts');
 
         return $this->routes();
     }
 
-    public function Contact($params)
+    public function contact($params)
     {
         include(JPATH_BASE . '/components/com_contact/models/contact.php');
         $ContactModel = new ContactModelContact();
@@ -24,7 +28,7 @@ class plgJapiContacts extends JPluginAPI
         return $this->output($contact);
     }
 
-    public function Contacts($params)
+    public function contacts($params)
     {
         require_once JPATH_ROOT . '/administrator/components/com_contact/models/contacts.php';
         $ContactModel = new ContactModelContacts();

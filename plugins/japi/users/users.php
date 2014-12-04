@@ -9,16 +9,13 @@ class plgJapiUsers extends JPluginAPI
 
     public function getRoutes()
     {
-        $this->addRoute('/users/:id',array('GET'),'Users');
+        $this->addRoute('/users/:id',array('GET'),'users');
 
         return $this->routes();
     }
 
-    public function Users($params)
+    public function users($params)
     {
-        //To have the value of :id back
-        //$params->params['id']
-
         $user = JFactory::getUser($params->params['id']);
 
         if ($user->guest == 1)
@@ -26,7 +23,7 @@ class plgJapiUsers extends JPluginAPI
             $this->error('Not exist', 404);
         }
 
-        return $this->output($data);
+        return $this->output($user);
     }
 
 }
