@@ -72,6 +72,21 @@ abstract class JPluginAPI extends JPlugin
         
     }
 
+    public function badRequest()
+    {
+        $this->error('Bad Request',400);
+    }
+    
+    public function forbidden()
+    {
+        $this->error('Forbidden',403);
+    }
+    
+    public function notFound()
+    {
+        $this->error('Not Found',404);
+    }
+    
     /**
      * Use this method to raise error
      * 

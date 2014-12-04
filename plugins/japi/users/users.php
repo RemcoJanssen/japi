@@ -25,7 +25,7 @@ class plgJapiUsers extends JPluginAPI
 
         if ($user->guest == 1)
         {
-            $this->error('Not exist', 404);
+            $this->notFound();
         }
 
         return $this->output($user);
