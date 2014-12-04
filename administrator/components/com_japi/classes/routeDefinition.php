@@ -12,9 +12,14 @@ class routeDefinition
     public $function;
     public $origin;
 
-    public function __construct($route, $via, $function, $origin)
+    public function __construct($route, $via, $function, $origin=null)
     {
 
+        if(!$origin)
+        {
+            $origin = get_class($this);
+        }
+        
         //Place to add validation to prevent crazy values
         $this->origin = substr($origin, 7); // plgJapiUsers -> Users  
         $this->route = $route;

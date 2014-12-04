@@ -4,6 +4,9 @@
 defined('_JEXEC') or die();
 JLoader::import('joomla.application.plugin');
 
+require_once(JPATH_ADMINISTRATOR . '/components/com_japi/classes/routeDefinition.php');
+require_once(JPATH_ADMINISTRATOR . '/components/com_japi/classes/apiData.php');
+
 // in an other file 
 abstract class JPluginAPI extends JPlugin
 {
@@ -14,10 +17,12 @@ abstract class JPluginAPI extends JPlugin
     {
         return $this->routes;
     }
+    
 
-    public function addRoute(routeDefinition $route)
+    public function addRoute($route,$methods,$callback)
     {
-        $this->routes[] = $route;
+        $routeDefinition = new routeDefinition($route,$methods,$callback);
+        $this->routes[] = $routeDefinition;
     }
 
     /**
