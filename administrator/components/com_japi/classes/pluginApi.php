@@ -51,14 +51,14 @@ abstract class JPluginAPI extends JPlugin
         {
             foreach ($data as $record)
             {
-                foreach ($this->$hiddenProperties as $fieldname)
+                foreach ($this->hiddenProperties as $fieldname)
                 {
                     unset($record->$fieldname);
                 }
             }
         } else
         {
-            foreach ($this->hiddenFields as $fieldname)
+            foreach ($this->hiddenProperties as $fieldname)
             {
                 unset($data->$fieldname);
             }
