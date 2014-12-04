@@ -17,7 +17,8 @@ Five HTTP verbs are supported:
 * DELETE requests to remove records
 * OPTIONS used by some framework to test a route
 
-#Method Override
+Method Override
+
 Some browser/framework don't  support all this method. In this case, you can send a POST with _METHOD='PUT' as parameter
 
 you may also override the HTTP method by using the X-HTTP-Method-Override header
