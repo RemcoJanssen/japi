@@ -9,6 +9,7 @@ class plgJapiUsers extends JPluginAPI
 
     public function init()
     {
+        //This function remove the "password" field from the output
         $this->setHiddenProperty(array('password'));
     }
 
@@ -25,6 +26,7 @@ class plgJapiUsers extends JPluginAPI
 
         if ($user->guest == 1)
         {
+            //This is a shortcut to 'Not found' - 404
             $this->notFound();
         }
 
