@@ -15,6 +15,7 @@ class plgJapiUsers extends JPluginAPI
 
     public function getRoutes()
     {
+        //HTTP GET request for “/users/34” will invoke the associated callback function, passing “34” as the callback’s argument
         $this->addRoute('/users/:id', array('GET'), 'users');
 
         return $this->routes();
@@ -22,6 +23,7 @@ class plgJapiUsers extends JPluginAPI
 
     public function users($params)
     {
+        //$params->params is an array of the variable used into the route : /users/:id
         $user = JFactory::getUser($params->params['id']);
 
         if ($user->guest == 1)
@@ -32,7 +34,6 @@ class plgJapiUsers extends JPluginAPI
 
         return $this->output($user);
     }
-
 }
 
 ?>
