@@ -2,7 +2,7 @@
 class ApiView extends \Slim\View
 {
 
-    public function render($status = 200)
+    public function render($template = NULL, $data = NULL, $status = 200)
     {
         $app = \Slim\Slim::getInstance();
 
