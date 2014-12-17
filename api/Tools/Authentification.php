@@ -14,15 +14,25 @@ class Authentification
      * Authentificate from a key
      * @return boolean
      */
-    public function Authentificate()
+     public function Authentificate()
     {
         $app = \Slim\Slim::getInstance();
         $app->environment['PATH_INFO'] = strtolower($app->environment['PATH_INFO']);
         $user = \JFactory::getUser();
+
+        /*
+        //user is not logged
+        if ($user->guest)
+        {
+            $api_key = $this->getKey($app);
+            $user = $this->getUser($app, $api_key);
+        }
         
-        //Do authentification
-        //Da basic ACL
+        $app->user = $user;
+        $this->checkAcl($app);
+        */
         
+        $app->dataDogsTags->userid = $user->id;
         return true;
     }
 
