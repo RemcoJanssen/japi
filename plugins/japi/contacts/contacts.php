@@ -21,7 +21,7 @@ class plgJapiContacts extends JPluginAPI
 
     public function contact($params)
     {
-        include(JPATH_BASE . '/components/com_contact/models/contact.php');
+        require_once(JPATH_BASE . '/components/com_contact/models/contact.php');
         $ContactModel = new ContactModelContact();
 
         $contact = $ContactModel->getItem($params->params['id']);
@@ -30,7 +30,7 @@ class plgJapiContacts extends JPluginAPI
 
     public function contacts($params)
     {
-        require_once JPATH_ROOT . '/administrator/components/com_contact/models/contacts.php';
+        require_once(JPATH_ROOT . '/administrator/components/com_contact/models/contacts.php');
         $ContactModel = new ContactModelContacts();
         $contacts = $ContactModel->getItems();
         return $this->output($contacts);     
